@@ -1,0 +1,38 @@
+Simple state space search examples in Java
+
+The code in this project is simple, goofy example Java code for exploring
+state space search.
+
+REQUIREMENTS
+
+Java 1.6 or later.
+
+INSTALLATION
+
+Yeah. You're out of your mind.
+
+USAGE
+
+$ java -cp bin net.crsr.statespace.rivercrossing.MissionariesCannibals
+
+CONTENTS
+
+src/net/crsr/statespace/Search.java
+src/net/crsr/statespace/State.java
+
+Search is currently a basic illustration of state space search. State is an interface
+required for the specific problem.
+
+src/net/crsr/statespace/rivercrossing/MissionariesCannibals.java
+src/net/crsr/statespace/rivercrossing/MCState.java
+
+Traditional, basic missionaries/cannibals crossing the river problem.  The first file
+is a driver program, the second defines the state for the solution.
+
+LICENSE
+
+StateSpaceSearch is free software.  See the file COPYING for copying conditions.
+
+BUGS
+
+Please send all bug reports to mcguire@crsr.net.
