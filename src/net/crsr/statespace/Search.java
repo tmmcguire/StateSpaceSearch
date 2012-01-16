@@ -23,21 +23,20 @@ public class Search<T extends State<T>>
   private int statesExamined;
   private final Queue<T> queue;
   private final Set<T> seen;
-  
+
   /**
-   * Initialize a Search. The {@link Queue} will be used to store states
-   * (which I would imagine would always be empty), The {@link Set} will be
-   * used to record previously seen states (which I think would also
-   * always be empty), and the {@link State} is the start state for the
-   * search.
+   * Initialize a Search. The {@link Queue} will be used to store states (which I would imagine would always be empty), The {@link Set} will be used to record
+   * previously seen states (which I think would also always be empty), and the {@link State} is the start state for the search.
    * 
-   * <p>The initial state will be added to the queue as the first step.
+   * <p>
+   * The initial state will be added to the queue as the first step.
    * 
-   * @param queue A {@link Queue} used to store to-be-examined states
-   * during the search.
-   * @param seen A {@link Set} used to store previously-examined states
-   * during the search.
-   * @param initialState The initial {@link State} for the search.
+   * @param queue
+   *          A {@link Queue} used to store to-be-examined states during the search.
+   * @param seen
+   *          A {@link Set} used to store previously-examined states during the search.
+   * @param initialState
+   *          The initial {@link State} for the search.
    */
   public Search(Queue<T> queue, Set<T> seen, T initialState)
   {
@@ -46,13 +45,13 @@ public class Search<T extends State<T>>
     this.seen = seen;
     this.statesExamined = 0;
   }
-  
+
   public T findGoal()
   {
-    while (! queue.isEmpty())
+    while (!queue.isEmpty())
     {
       statesExamined++;
-      
+
       T current = queue.remove();
       if (current.isGoal())
       {
@@ -60,7 +59,7 @@ public class Search<T extends State<T>>
       }
       for (T newState : current.expand())
       {
-        if (! seen.contains(newState))
+        if (!seen.contains(newState))
         {
           seen.add(newState);
           queue.add(newState);
@@ -69,7 +68,7 @@ public class Search<T extends State<T>>
     }
     return null;
   }
-  
+
   public int statesExamined()
   {
     return statesExamined;

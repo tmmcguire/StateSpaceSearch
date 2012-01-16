@@ -22,41 +22,36 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * The "state" in state-space search. At a minimum, a state is
- * responsible for
+ * The "state" in state-space search. At a minimum, a state is responsible for
  * <ol>
- * <li>Generating a list of new states by evaluating the valid
- * operations on itself, and
+ * <li>Generating a list of new states by evaluating the valid operations on itself, and
  * <li>Deciding whether it is a satisfactory goal state.
  * </ol>
  * 
- * <p>Because a {@link Set} of previously-seen states is also kept,
- * implementations of this class should also
+ * <p>
+ * Because a {@link Set} of previously-seen states is also kept, implementations of this class should also
  * <ul>
- * <li>have reasonably valid implementations of <code>hashCode</code>
- * and <code>equals</code>, if a {@link HashSet} is to be used.
- * <li>be an implementation of {@link Comparable}, if a {@link TreeSet}
- * is to be used. A {@link Comparator} could be passed to the TreeSet
- * constructor as well.
+ * <li>have reasonably valid implementations of <code>hashCode</code> and <code>equals</code>, if a {@link HashSet} is to be used.
+ * <li>be an implementation of {@link Comparable}, if a {@link TreeSet} is to be used. A {@link Comparator} could be passed to the TreeSet constructor as well.
  * </ul>
  * 
- * <p>For reasons of genericity, the state class should be defined as:
- * <code>class MyState implements State&lt;MyState></code>.
+ * <p>
+ * For reasons of genericity, the state class should be defined as: <code>class MyState implements State&lt;MyState></code>.
  * 
  * @author mcguire
- *
- * @param <T> The state class itself. See above.
+ * 
+ * @param <T>
+ *          The state class itself. See above.
  */
 public interface State<T>
 {
   /**
-   * Expand the state by evaluating all of the valid operations and
-   * create a list of new states.
+   * Expand the state by evaluating all of the valid operations and create a list of new states.
    * 
    * @return {@link List} of States immediately reachable from this state.
    */
   public List<T> expand();
-  
+
   /**
    * Test whether the state satisfies the search's goal conditions.
    * 
